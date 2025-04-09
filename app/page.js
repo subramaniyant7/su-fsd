@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { sortHandler } from '../utils/naturalSort';
+import './page.module.css'
 
 export default function Home() {
   const [items, setItems] = useState([]);
@@ -27,13 +28,13 @@ export default function Home() {
 
   return (
     <main className="p-6">
-      <h1 className="text-2xl font-bold mb-4">CSV Sorter</h1>
+      <h1 className="text-2xl font-bold mb-4 space">CSV Sorter</h1>
       <select onChange={e => setSortMode(e.target.value)} className="mb-4 p-2 border">
         <option value="createdAt">Sort by Created At</option>
         <option value="filenameAsc">Filename ↑</option>
         <option value="filenameDesc">Filename ↓</option>
       </select>
-      <ul className="space-y-1">
+      <ul className="space-y-1 list-space">
         {getSortedItems().map((item, i) => (
           <li key={i}>
             {item.createdAt} — {item.filename}
